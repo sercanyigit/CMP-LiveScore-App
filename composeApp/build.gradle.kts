@@ -51,6 +51,7 @@ kotlin {
             
             // Dependency Injection
             implementation(libs.koin.core)
+            implementation(libs.moko.mvvm.compose)
             
             // MVVM
             implementation(libs.moko.mvvm.core)

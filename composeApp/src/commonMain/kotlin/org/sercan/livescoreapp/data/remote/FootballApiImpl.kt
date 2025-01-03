@@ -48,6 +48,28 @@ class FootballApiImpl : FootballApi {
         // Gerçek bir API'da burada refresh işlemi yapılır
     }
 
+    override suspend fun getTableStandings(): List<Standing> {
+        return try {
+            val jsonString = getJsonFromResource()
+            val data = json.decodeFromString<FootballData>(jsonString)
+            data.standings.tableStandings
+        } catch (e: Exception) {
+            println("Error parsing standings: ${e.message}")
+            emptyList()
+        }
+    }
+
+    override suspend fun getTopScorers(): List<TopScorer> {
+        return try {
+            val jsonString = getJsonFromResource()
+            val data = json.decodeFromString<FootballData>(jsonString)
+            data.standings.topScorers
+        } catch (e: Exception) {
+            println("Error parsing top scorers: ${e.message}")
+            emptyList()
+        }
+    }
+
     private fun getJsonFromResource(): String {
         return try {
             val classLoader = this::class.java.classLoader

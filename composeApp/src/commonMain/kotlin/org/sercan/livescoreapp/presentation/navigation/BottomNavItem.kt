@@ -17,9 +17,9 @@ sealed class BottomNavItem(
         title = "Home",
         icon = Icons.Default.Home
     )
-    object Matches : BottomNavItem(
-        route = "matches",
-        title = "Matches",
+    object Standings : BottomNavItem(
+        route = "standings",
+        title = "Standings",
         icon = Icons.Default.List
     )
     object Saved : BottomNavItem(

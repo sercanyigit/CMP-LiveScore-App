@@ -12,13 +12,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.sercan.livescoreapp.presentation.navigation.BottomNavItem
 import org.sercan.livescoreapp.presentation.home.HomeScreen
+import org.sercan.livescoreapp.presentation.standings.StandingsScreen
 
 @Composable
 fun App() {
     var selectedItem by remember { mutableStateOf(0) }
     val items = listOf(
         BottomNavItem.Home,
-        BottomNavItem.Matches,
+        BottomNavItem.Standings,
         BottomNavItem.Saved,
         BottomNavItem.Profile
     )
@@ -62,6 +63,7 @@ fun App() {
             Box(modifier = Modifier.padding(paddingValues)) {
                 when (selectedItem) {
                     0 -> HomeScreen()
+                    1 -> StandingsScreen()
                     else -> HomeScreen()
                 }
             }

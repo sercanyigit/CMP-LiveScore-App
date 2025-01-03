@@ -114,5 +114,124 @@
       "imageUrl": "transfer_news.jpg",
       "date": "2022-08-26T10:15:00Z"
     }
-  ]
+  ],
+  "standings": {
+    "tableStandings": [
+      {
+        "position": 1,
+        "club": {
+          "name": "Arsenal",
+          "logo": "arsenal_logo.png",
+          "leagueType": "UEFA_CHAMPIONS_LEAGUE"
+        },
+        "played": 3,
+        "won": 3,
+        "drawn": 0,
+        "lost": 0,
+        "points": 9
+      },
+      {
+        "position": 2,
+        "club": {
+          "name": "Man City",
+          "logo": "mancity_logo.png",
+          "leagueType": "UEFA_CHAMPIONS_LEAGUE"
+        },
+        "played": 3,
+        "won": 2,
+        "drawn": 1,
+        "lost": 0,
+        "points": 7
+      },
+      {
+        "position": 3,
+        "club": {
+          "name": "Leeds United",
+          "logo": "leeds_logo.png",
+          "leagueType": "UEFA_CHAMPIONS_LEAGUE"
+        },
+        "played": 3,
+        "won": 2,
+        "drawn": 1,
+        "lost": 0,
+        "points": 7
+      },
+      {
+        "position": 4,
+        "club": {
+          "name": "Tottenham",
+          "logo": "tottenham_logo.png",
+          "leagueType": "UEFA_CHAMPIONS_LEAGUE"
+        },
+        "played": 3,
+        "won": 1,
+        "drawn": 2,
+        "lost": 0,
+        "points": 5
+      },
+      {
+        "position": 5,
+        "club": {
+          "name": "Brighton",
+          "logo": "brighton_logo.png",
+          "leagueType": "EUROPA_LEAGUE"
+        },
+        "played": 3,
+        "won": 1,
+        "drawn": 1,
+        "lost": 1,
+        "points": 4
+      }
+    ],
+    "topScorers": [
+      {
+        "player": {
+          "name": "Frenkie De Jong",
+          "photo": "dejong_photo.png",
+          "club": "Barcelona"
+        },
+        "goals": 9
+      },
+      {
+        "player": {
+          "name": "Aleksandar Mitrovic",
+          "photo": "mitrovic_photo.png",
+          "club": "Fulham"
+        },
+        "goals": 6
+      },
+      {
+        "player": {
+          "name": "Harry Kane",
+          "photo": "kane_photo.png",
+          "club": "Tottenham"
+        },
+        "goals": 4
+      },
+      {
+        "player": {
+          "name": "Rodrigo",
+          "photo": "rodrigo_photo.png",
+          "club": "Leeds"
+        },
+        "goals": 4
+      },
+      {
+        "player": {
+          "name": "Wilfried Zaha",
+          "photo": "zaha_photo.png",
+          "club": "Crystal Palace"
+        },
+        "goals": 3
+      },
+      {
+        "player": {
+          "name": "Roberto Firmino",
+          "photo": "firmino_photo.png",
+          "club": "Liverpool"
+        },
+        "goals": 3
+      }
+    ]
+  }
 } 
