@@ -1,6 +1,3 @@
-import android.content.Context
-import org.sercan.livescoreapp.di.appContext
-
 actual class JsonReader {
     actual fun readJsonFromResources(fileName: String): String {
         return try {
