@@ -1,4 +1,4 @@
-package org.sercan.livescoreapp.presentation.navigation
+package org.sercan.livescoreapp.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home

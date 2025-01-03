@@ -21,7 +21,7 @@ data class StandingsScreenState(
 class StandingsViewModel(
     private val getTableStandingsUseCase: GetTableStandingsUseCase,
     private val getTopScorersUseCase: GetTopScorersUseCase
-) : ViewModel(), KoinComponent {
+) : ViewModel() {
 
     private val _state = MutableStateFlow(StandingsScreenState())
     val state = _state.asStateFlow()

@@ -17,16 +17,18 @@ import androidx.compose.ui.unit.sp
 import dev.icerock.moko.mvvm.compose.getViewModel
 import dev.icerock.moko.mvvm.compose.viewModelFactory
 import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+import org.koin.core.component.get
 import org.sercan.livescoreapp.domain.model.LeagueType
 import org.sercan.livescoreapp.domain.model.Standing
 import org.sercan.livescoreapp.domain.model.TopScorer
 import org.sercan.livescoreapp.domain.usecase.GetTableStandingsUseCase
 import org.sercan.livescoreapp.domain.usecase.GetTopScorersUseCase
 
-private object StandingsScreenComponent : KoinComponent {
-    val getTableStandingsUseCase: GetTableStandingsUseCase by inject()
-    val getTopScorersUseCase: GetTopScorersUseCase by inject()
+private object ViewModelFactory : KoinComponent {
+    fun createViewModel() = StandingsViewModel(
+        get<GetTableStandingsUseCase>(),
+        get<GetTopScorersUseCase>()
+    )
 }
 
 @Composable
@@ -34,10 +36,7 @@ fun StandingsScreen() {
     val viewModel = getViewModel(
         key = "standings-screen",
         factory = viewModelFactory {
-            StandingsViewModel(
-                getTableStandingsUseCase = StandingsScreenComponent.getTableStandingsUseCase,
-                getTopScorersUseCase = StandingsScreenComponent.getTopScorersUseCase
-            )
+            ViewModelFactory.createViewModel()
         }
     )
     
@@ -54,19 +53,39 @@ fun StandingsScreen() {
             elevation = 0.dp
         )
 
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(24.dp)
-        ) {
-            // Table Standings Section
-            item {
-                TableStandingsSection(state.standings)
+        when {
+            state.isLoading -> {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator(color = Color.White)
+                }
             }
-
-            // Goals Scored Section
-            item {
-                GoalsScoredSection(state.topScorers)
+            state.error != null -> {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = state.error ?: "Unknown error",
+                        color = Color.Red
+                    )
+                }
+            }
+            else -> {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(24.dp)
+                ) {
+                    item {
+                        TableStandingsSection(state.standings)
+                    }
+                    item {
+                        GoalsScoredSection(state.topScorers)
+                    }
+                }
             }
         }
     }
@@ -103,6 +122,9 @@ fun TableStandingsSection(standings: List<Standing>) {
 
             standings.forEach { standing ->
                 StandingItem(standing)
+                if (standing != standings.last()) {
+                    Spacer(modifier = Modifier.height(16.dp))
+                }
             }
         }
     }
@@ -111,38 +133,39 @@ fun TableStandingsSection(standings: List<Standing>) {
 @Composable
 fun StandingItem(standing: Standing) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Box(
-            modifier = Modifier
-                .size(8.dp)
-                .background(
-                    when (standing.club.leagueType) {
-                        LeagueType.UEFA_CHAMPIONS_LEAGUE -> Color(0xFF4B4BFF)
-                        LeagueType.EUROPA_LEAGUE -> Color(0xFFFF9F0A)
-                    },
-                    CircleShape
-                )
-        )
-        Spacer(modifier = Modifier.width(8.dp))
-        
         Row(
             modifier = Modifier.weight(1f),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Club logo placeholder
+            Box(
+                modifier = Modifier
+                    .size(4.dp)
+                    .background(
+                        when (standing.club.leagueType) {
+                            LeagueType.UEFA_CHAMPIONS_LEAGUE -> Color(0xFF4B4BFF)
+                            LeagueType.EUROPA_LEAGUE -> Color(0xFFFFA726)
+                        },
+                        CircleShape
+                    )
+            )
+            
+            Spacer(modifier = Modifier.width(8.dp))
+            
             Surface(
                 modifier = Modifier.size(24.dp),
                 shape = RoundedCornerShape(12.dp),
                 color = Color.White.copy(alpha = 0.1f)
             ) {}
+            
             Spacer(modifier = Modifier.width(8.dp))
+            
             Text(standing.club.name, color = Color.White)
         }
-        
+
         Text(
             standing.won.toString(),
             color = Color.White,
@@ -185,10 +208,9 @@ fun GoalsScoredSection(scorers: List<TopScorer>) {
             }
         }
 
-        scorers.forEach { scorer ->
-            ScorerItem(scorer)
-            if (scorer != scorers.last()) {
-                Spacer(modifier = Modifier.height(8.dp))
+        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            scorers.forEach { scorer ->
+                ScorerItem(scorer)
             }
         }
     }
@@ -200,7 +222,6 @@ fun ScorerItem(scorer: TopScorer) {
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Player photo placeholder
         Surface(
             modifier = Modifier.size(40.dp),
             shape = CircleShape,

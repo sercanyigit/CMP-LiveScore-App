@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.sercan.livescoreapp.presentation.navigation.BottomNavItem
+import org.sercan.livescoreapp.navigation.BottomNavItem
 import org.sercan.livescoreapp.presentation.home.HomeScreen
 import org.sercan.livescoreapp.presentation.standings.StandingsScreen
 
