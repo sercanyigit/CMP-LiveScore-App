@@ -1,0 +1,118 @@
+{
+  "liveMatches": [
+    {
+      "id": "1",
+      "homeTeam": {
+        "name": "Barcelona",
+        "logo": "barcelona_logo.png",
+        "scorers": [
+          {
+            "name": "De Jong",
+            "minute": 66
+          },
+          {
+            "name": "Depay",
+            "minute": 79
+          }
+        ],
+        "score": 2
+      },
+      "awayTeam": {
+        "name": "Man City",
+        "logo": "mancity_logo.png",
+        "scorers": [
+          {
+            "name": "Alvarez",
+            "minute": 21
+          },
+          {
+            "name": "Palmer",
+            "minute": 70
+          }
+        ],
+        "score": 2
+      },
+      "matchTime": "60:22",
+      "status": "LIVE"
+    },
+    {
+      "id": "2",
+      "homeTeam": {
+        "name": "Arsenal",
+        "logo": "arsenal_logo.png",
+        "scorers": [
+          {
+            "name": "Saka",
+            "minute": 45
+          }
+        ],
+        "score": 1
+      },
+      "awayTeam": {
+        "name": "Chelsea",
+        "logo": "chelsea_logo.png",
+        "scorers": [],
+        "score": 0
+      },
+      "matchTime": "45:00",
+      "status": "LIVE"
+    }
+  ],
+  "upcomingMatches": [
+    {
+      "id": "3",
+      "homeTeam": {
+        "name": "Chelsea",
+        "logo": "chelsea_logo.png"
+      },
+      "awayTeam": {
+        "name": "Leicester",
+        "logo": "leicester_logo.png"
+      },
+      "date": "27 Aug 2022",
+      "time": "01.40"
+    },
+    {
+      "id": "4",
+      "homeTeam": {
+        "name": "Brighton",
+        "logo": "brighton_logo.png"
+      },
+      "awayTeam": {
+        "name": "Leeds Unit",
+        "logo": "leeds_logo.png"
+      },
+      "date": "27 Aug 2022",
+      "time": "00.10"
+    },
+    {
+      "id": "5",
+      "homeTeam": {
+        "name": "Man City",
+        "logo": "mancity_logo.png"
+      },
+      "awayTeam": {
+        "name": "Crystal Pa",
+        "logo": "crystal_logo.png"
+      },
+      "date": "29 Aug 2022",
+      "time": "19.40"
+    }
+  ],
+  "footballNews": [
+    {
+      "id": "1",
+      "title": "Champions League 2022-23 draw: group stage analysis and predictions",
+      "description": "Complete analysis of the Champions League group stage draw and predictions for each group.",
+      "imageUrl": "champions_league.jpg",
+      "date": "2022-08-26T14:30:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Transfer News: Latest updates from top European clubs",
+      "description": "Latest transfer news and rumors from the top European football clubs.",
+      "imageUrl": "transfer_news.jpg",
+      "date": "2022-08-26T10:15:00Z"
+    }
+  ]
+} 
