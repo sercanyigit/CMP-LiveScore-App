@@ -1,237 +1,96 @@
 {
-  "liveMatches": [
+  "standings": [
     {
-      "id": "1",
-      "homeTeam": {
-        "name": "Barcelona",
-        "logo": "barcelona_logo.png",
-        "scorers": [
-          {
-            "name": "De Jong",
-            "minute": 66
-          },
-          {
-            "name": "Depay",
-            "minute": 79
-          }
-        ],
-        "score": 2
-      },
-      "awayTeam": {
-        "name": "Man City",
-        "logo": "mancity_logo.png",
-        "scorers": [
-          {
-            "name": "Alvarez",
-            "minute": 21
-          },
-          {
-            "name": "Palmer",
-            "minute": 70
-          }
-        ],
-        "score": 2
-      },
-      "matchTime": "60:22",
-      "status": "LIVE"
+      "position": 1,
+      "team": "Manchester City",
+      "played": 20,
+      "won": 15,
+      "drawn": 3,
+      "lost": 2,
+      "goalsFor": 45,
+      "goalsAgainst": 20,
+      "points": 48
     },
     {
-      "id": "2",
-      "homeTeam": {
-        "name": "Arsenal",
-        "logo": "arsenal_logo.png",
-        "scorers": [
-          {
-            "name": "Saka",
-            "minute": 45
-          }
-        ],
-        "score": 1
-      },
-      "awayTeam": {
-        "name": "Chelsea",
-        "logo": "chelsea_logo.png",
-        "scorers": [],
-        "score": 0
-      },
-      "matchTime": "45:00",
-      "status": "LIVE"
+      "position": 2,
+      "team": "Liverpool",
+      "played": 20,
+      "won": 14,
+      "drawn": 4,
+      "lost": 2,
+      "goalsFor": 43,
+      "goalsAgainst": 18,
+      "points": 46
+    },
+    {
+      "position": 3,
+      "team": "Arsenal",
+      "played": 20,
+      "won": 13,
+      "drawn": 4,
+      "lost": 3,
+      "goalsFor": 40,
+      "goalsAgainst": 20,
+      "points": 43
+    },
+    {
+      "position": 4,
+      "team": "Aston Villa",
+      "played": 20,
+      "won": 13,
+      "drawn": 3,
+      "lost": 4,
+      "goalsFor": 43,
+      "goalsAgainst": 27,
+      "points": 42
+    },
+    {
+      "position": 5,
+      "team": "Tottenham",
+      "played": 20,
+      "won": 12,
+      "drawn": 3,
+      "lost": 5,
+      "goalsFor": 42,
+      "goalsAgainst": 29,
+      "points": 39
     }
   ],
-  "upcomingMatches": [
+  "topScorers": [
     {
-      "id": "3",
-      "homeTeam": {
-        "name": "Chelsea",
-        "logo": "chelsea_logo.png"
-      },
-      "awayTeam": {
-        "name": "Leicester",
-        "logo": "leicester_logo.png"
-      },
-      "date": "27 Aug 2022",
-      "time": "01.40"
+      "position": 1,
+      "player": "Erling Haaland",
+      "team": "Manchester City",
+      "goals": 14,
+      "assists": 5
     },
     {
-      "id": "4",
-      "homeTeam": {
-        "name": "Brighton",
-        "logo": "brighton_logo.png"
-      },
-      "awayTeam": {
-        "name": "Leeds Unit",
-        "logo": "leeds_logo.png"
-      },
-      "date": "27 Aug 2022",
-      "time": "00.10"
+      "position": 2,
+      "player": "Mohamed Salah",
+      "team": "Liverpool",
+      "goals": 14,
+      "assists": 8
     },
     {
-      "id": "5",
-      "homeTeam": {
-        "name": "Man City",
-        "logo": "mancity_logo.png"
-      },
-      "awayTeam": {
-        "name": "Crystal Pa",
-        "logo": "crystal_logo.png"
-      },
-      "date": "29 Aug 2022",
-      "time": "19.40"
+      "position": 3,
+      "player": "Ollie Watkins",
+      "team": "Aston Villa",
+      "goals": 11,
+      "assists": 8
+    },
+    {
+      "position": 4,
+      "player": "Son Heung-min",
+      "team": "Tottenham",
+      "goals": 11,
+      "assists": 5
+    },
+    {
+      "position": 5,
+      "player": "Jarrod Bowen",
+      "team": "West Ham",
+      "goals": 11,
+      "assists": 3
     }
-  ],
-  "footballNews": [
-    {
-      "id": "1",
-      "title": "Champions League 2022-23 draw: group stage analysis and predictions",
-      "description": "Complete analysis of the Champions League group stage draw and predictions for each group.",
-      "imageUrl": "champions_league.jpg",
-      "date": "2022-08-26T14:30:00Z"
-    },
-    {
-      "id": "2",
-      "title": "Transfer News: Latest updates from top European clubs",
-      "description": "Latest transfer news and rumors from the top European football clubs.",
-      "imageUrl": "transfer_news.jpg",
-      "date": "2022-08-26T10:15:00Z"
-    }
-  ],
-  "standings": {
-    "tableStandings": [
-      {
-        "position": 1,
-        "club": {
-          "name": "Arsenal",
-          "logo": "arsenal_logo.png",
-          "leagueType": "UEFA_CHAMPIONS_LEAGUE"
-        },
-        "played": 3,
-        "won": 3,
-        "drawn": 0,
-        "lost": 0,
-        "points": 9
-      },
-      {
-        "position": 2,
-        "club": {
-          "name": "Man City",
-          "logo": "mancity_logo.png",
-          "leagueType": "UEFA_CHAMPIONS_LEAGUE"
-        },
-        "played": 3,
-        "won": 2,
-        "drawn": 1,
-        "lost": 0,
-        "points": 7
-      },
-      {
-        "position": 3,
-        "club": {
-          "name": "Leeds United",
-          "logo": "leeds_logo.png",
-          "leagueType": "UEFA_CHAMPIONS_LEAGUE"
-        },
-        "played": 3,
-        "won": 2,
-        "drawn": 1,
-        "lost": 0,
-        "points": 7
-      },
-      {
-        "position": 4,
-        "club": {
-          "name": "Tottenham",
-          "logo": "tottenham_logo.png",
-          "leagueType": "UEFA_CHAMPIONS_LEAGUE"
-        },
-        "played": 3,
-        "won": 1,
-        "drawn": 2,
-        "lost": 0,
-        "points": 5
-      },
-      {
-        "position": 5,
-        "club": {
-          "name": "Brighton",
-          "logo": "brighton_logo.png",
-          "leagueType": "EUROPA_LEAGUE"
-        },
-        "played": 3,
-        "won": 1,
-        "drawn": 1,
-        "lost": 1,
-        "points": 4
-      }
-    ],
-    "topScorers": [
-      {
-        "player": {
-          "name": "Frenkie De Jong",
-          "photo": "dejong_photo.png",
-          "club": "Barcelona"
-        },
-        "goals": 9
-      },
-      {
-        "player": {
-          "name": "Aleksandar Mitrovic",
-          "photo": "mitrovic_photo.png",
-          "club": "Fulham"
-        },
-        "goals": 6
-      },
-      {
-        "player": {
-          "name": "Harry Kane",
-          "photo": "kane_photo.png",
-          "club": "Tottenham"
-        },
-        "goals": 4
-      },
-      {
-        "player": {
-          "name": "Rodrigo",
-          "photo": "rodrigo_photo.png",
-          "club": "Leeds"
-        },
-        "goals": 4
-      },
-      {
-        "player": {
-          "name": "Wilfried Zaha",
-          "photo": "zaha_photo.png",
-          "club": "Crystal Palace"
-        },
-        "goals": 3
-      },
-      {
-        "player": {
-          "name": "Roberto Firmino",
-          "photo": "firmino_photo.png",
-          "club": "Liverpool"
-        },
-        "goals": 3
-      }
-    ]
-  }
+  ]
 } 

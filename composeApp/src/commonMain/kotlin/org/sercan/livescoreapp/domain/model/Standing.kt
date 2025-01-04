@@ -5,19 +5,14 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Standing(
     val position: Int,
-    val club: Club,
+    val team: String,
     val played: Int,
     val won: Int,
     val drawn: Int,
     val lost: Int,
+    val goalsFor: Int,
+    val goalsAgainst: Int,
     val points: Int
-)
-
-@Serializable
-data class Club(
-    val name: String,
-    val logo: String,
-    val leagueType: LeagueType
 )
 
 @Serializable

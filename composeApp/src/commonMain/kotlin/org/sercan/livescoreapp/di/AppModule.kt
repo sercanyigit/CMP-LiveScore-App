@@ -3,7 +3,6 @@ package org.sercan.livescoreapp.di
 import JsonReader
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
-import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import org.sercan.livescoreapp.data.remote.FootballApi
 import org.sercan.livescoreapp.data.remote.FootballApiImpl
 import org.sercan.livescoreapp.data.repository.FootballRepositoryImpl
@@ -26,13 +25,10 @@ val appModule = module {
     single<StandingsRepository> { StandingsRepositoryImpl(get()) }
 
     // Use Cases
-    factoryOf(::GetLiveMatchesUseCase)
-    factoryOf(::GetUpcomingMatchesUseCase)
-    factoryOf(::GetFootballNewsUseCase)
     factoryOf(::GetTableStandingsUseCase)
     factoryOf(::GetTopScorersUseCase)
 
     // ViewModels
-    factory { HomeViewModel(get(), get(), get()) }
+    factory { HomeViewModel() }
     factory { StandingsViewModel(get(), get()) }
 } 

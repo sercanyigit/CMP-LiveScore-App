@@ -4,13 +4,15 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class TopScorer(
-    val player: Player,
-    val goals: Int
+    val position: Int,
+    val player: String,
+    val team: String,
+    val goals: Int,
+    val assists: Int
 )
 
 @Serializable
 data class Player(
     val name: String,
-    val photo: String,
     val club: String
 ) 

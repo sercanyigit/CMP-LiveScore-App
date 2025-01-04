@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -39,7 +38,7 @@ fun StandingsScreen() {
             ViewModelFactory.createViewModel()
         }
     )
-    
+
     val state by viewModel.state.collectAsState()
 
     Column(
@@ -127,6 +126,36 @@ fun TableStandingsSection(standings: List<Standing>) {
                 }
             }
         }
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp)
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(8.dp)
+                        .background(Color(0xFF4B4BFF), CircleShape)
+                )
+                Text("UEFA Champions league", color = Color.Gray, fontSize = 12.sp)
+            }
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(8.dp)
+                        .background(Color(0xFFFFA726), CircleShape)
+                )
+                Text("Europa League", color = Color.Gray, fontSize = 12.sp)
+            }
+        }
     }
 }
 
@@ -145,9 +174,10 @@ fun StandingItem(standing: Standing) {
                 modifier = Modifier
                     .size(4.dp)
                     .background(
-                        when (standing.club.leagueType) {
-                            LeagueType.UEFA_CHAMPIONS_LEAGUE -> Color(0xFF4B4BFF)
-                            LeagueType.EUROPA_LEAGUE -> Color(0xFFFFA726)
+                        when (standing.position) {
+                            in 1..4 -> Color(0xFF4B4BFF) // Champions League spots
+                            5 -> Color(0xFFFFA726) // Europa League spot
+                            else -> Color.Gray
                         },
                         CircleShape
                     )
@@ -155,15 +185,7 @@ fun StandingItem(standing: Standing) {
             
             Spacer(modifier = Modifier.width(8.dp))
             
-            Surface(
-                modifier = Modifier.size(24.dp),
-                shape = RoundedCornerShape(12.dp),
-                color = Color.White.copy(alpha = 0.1f)
-            ) {}
-            
-            Spacer(modifier = Modifier.width(8.dp))
-            
-            Text(standing.club.name, color = Color.White)
+            Text(standing.team, color = Color.White)
         }
 
         Text(
@@ -222,19 +244,11 @@ fun ScorerItem(scorer: TopScorer) {
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Surface(
-            modifier = Modifier.size(40.dp),
-            shape = CircleShape,
-            color = Color.White.copy(alpha = 0.1f)
-        ) {}
-        
-        Spacer(modifier = Modifier.width(12.dp))
-        
         Column(modifier = Modifier.weight(1f)) {
-            Text(scorer.player.name, color = Color.White)
-            Text(scorer.player.club, color = Color.Gray, fontSize = 12.sp)
+            Text(scorer.player, color = Color.White)
+            Text(scorer.team, color = Color.Gray, fontSize = 12.sp)
         }
-        
+
         Text(
             scorer.goals.toString(),
             color = Color.White,

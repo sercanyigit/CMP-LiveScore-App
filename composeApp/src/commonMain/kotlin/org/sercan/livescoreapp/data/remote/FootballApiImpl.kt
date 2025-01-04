@@ -11,40 +11,8 @@ class FootballApiImpl(
     private val json = Json { 
         ignoreUnknownKeys = true 
         isLenient = true
-        prettyPrint = true
-    }
-    
-    override suspend fun getLiveMatches(): List<Match> {
-        return try {
-            val jsonString = getJsonFromResource()
-            val data = json.decodeFromString<FootballData>(jsonString)
-            data.liveMatches
-        } catch (e: Exception) {
-            println("Error parsing live matches: ${e.message}")
-            emptyList()
-        }
-    }
-
-    override suspend fun getUpcomingMatches(): List<Match> {
-        return try {
-            val jsonString = getJsonFromResource()
-            val data = json.decodeFromString<FootballData>(jsonString)
-            data.upcomingMatches
-        } catch (e: Exception) {
-            println("Error parsing upcoming matches: ${e.message}")
-            emptyList()
-        }
-    }
-
-    override suspend fun getFootballNews(): List<News> {
-        return try {
-            val jsonString = getJsonFromResource()
-            val data = json.decodeFromString<FootballData>(jsonString)
-            data.footballNews
-        } catch (e: Exception) {
-            println("Error parsing news: ${e.message}")
-            emptyList()
-        }
+        prettyPrint = false
+        coerceInputValues = true
     }
 
     override suspend fun refreshData() {
@@ -57,7 +25,7 @@ class FootballApiImpl(
             println("JSON String: $jsonString") // Debug log
             val data = json.decodeFromString<FootballData>(jsonString)
             println("Decoded data: $data") // Debug log
-            data.standings.tableStandings
+            data.standings
         } catch (e: Exception) {
             println("Error parsing standings: ${e.message}")
             e.printStackTrace() // Stack trace
@@ -71,7 +39,7 @@ class FootballApiImpl(
             println("JSON String: $jsonString") // Debug log
             val data = json.decodeFromString<FootballData>(jsonString)
             println("Decoded data: $data") // Debug log
-            data.standings.topScorers
+            data.topScorers
         } catch (e: Exception) {
             println("Error parsing top scorers: ${e.message}")
             e.printStackTrace() // Stack trace
