@@ -1,4 +1,11 @@
-fun MainViewController() = ComposeUIViewController {
+package org.sercan.livescoreapp
+
+import androidx.compose.ui.window.ComposeUIViewController
+import org.sercan.livescoreapp.di.initKoin
+import platform.UIKit.UIViewController
+
+@Suppress("FunctionName")
+fun MainViewController(): UIViewController {
     initKoin()
-    App()
+    return ComposeUIViewController { App() }
 } 
